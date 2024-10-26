@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AddTodo from "./Pages/AddTood/AddTodo";
+import EditTodo from "./Pages/EditTodo/EditTodo";
+import ViewTodo from "./Pages/ViewTodo/ViewTodo";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+const router = createBrowserRouter([
+  { path: "/", element: <ViewTodo /> },
+  { path: "/addtodo", element: <AddTodo /> },
+  { path: "/edittodo/:id", element: <EditTodo /> },
+]);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router} />
     </div>
   );
 }
